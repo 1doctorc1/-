@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/my/my",
+    "pages/kefu/kefu",
+    "pages/test/test",
+    "pages/diy/diy",
+    "pages/index/index",
+    "pages/community/community",
+    "pages/guanyu/guanyu",
+    "pages/fankui/fankui"
+    
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "DIY你的那个TA",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+        "pagePath": "pages/diy/diy",
+        "text": "DIY",
+        "iconPath": "图床/灯泡.png",
+        "selectedIconPath": "图床/太阳.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "作品社区",
+        "iconPath": "图床/不笑脸.png",
+        "selectedIconPath": "图床/笑脸.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "图床/用户.png",
+        "selectedIconPath": "图床/用户0.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

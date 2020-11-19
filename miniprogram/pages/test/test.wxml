@@ -1,0 +1,18 @@
+<!--pages/me/me.wxml-->
+<view class='top' wx:if='{{!yincang}}'>
+ <image class='touxiang' src='{{yonghu.avatarUrl}}'></image>
+ <text class='name'>{{yonghu.nickName}}</text>
+</view>
+<button wx:if='{{yincang}}' open-type="getUserInfo" type='primary' lang="zh_CN" bindgetuserinfo="onGotUserInfo">获取用户信息</button>
+<!-- 分割线 -->
+<view class='fengexian'></view>
+<!-- 联系客服 -->
+<view class='kefu' bindtap='qukefuye'>
+ <text>联系客服</text>
+</view>
+<!-- 分割线 -->
+<view class='fengexian'></view>
+<!-- 反馈与建议 -->
+<button class='button' open-type="feedback">
+ <text class='button_title'>反馈建议</text>
+</button>

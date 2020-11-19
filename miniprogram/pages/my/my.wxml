@@ -1,0 +1,36 @@
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 微信登陆 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+</view>
+<view class="hr"></view>
+<view class="item" bindtap="guanyu">
+    <view class="title">关于</view>
+    <view class="detail2">
+        <text>></text>
+    </view>
+</view>
+<view class="line"></view>
+<view class="item" bindtap="kefu">
+    <view class="title">在线客服</view>
+    <view class="detail2">
+        <text>></text>
+    </view>
+</view>
+<view class="line"></view>
+
+    <button class="button" open-type="feedback">
+    <text class="button_title">意见反馈</text>
+    </button>
+    <view class="line"></view>
+
+
+    <button class="button" open-type="share">
+    <text class="button_title">分享给好友</text>
+    </button>
+    <view class="line"></view>
+

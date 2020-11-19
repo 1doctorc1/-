@@ -1,0 +1,1 @@
+<kaiping-component wx:if="{{kaipingFlag}}" imagepath="/图床/logo.png" second="{{5}}" bind:hide="onMyEvent"></kaiping-component>
