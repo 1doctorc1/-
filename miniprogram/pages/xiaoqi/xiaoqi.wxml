@@ -1,0 +1,16 @@
+<view class="item-container">
+  <view>
+    <image src="../../icons/xiaoqi.jpg" mode="aspectFill" class="xiaoqi"></image>
+  </view>
+  <view>
+    <text class="output">
+      {{answer}}
+    </text>
+  </view>
+  <form bindsubmit="send">
+    <view>
+      <input placeholder="快来和小琪聊天吧" bindinput="getInput" class="input"></input>
+    </view>
+    <button bindtap="send" type="primary">和小琪聊天</button>
+  </form>
+</view>

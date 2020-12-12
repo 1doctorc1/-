@@ -1,0 +1,16 @@
+/* pages/xiaosi/xiaosi.wxss */
+.input {
+  font-size: 50rpx;
+  margin: 60rpx;
+  height: 60rpx;
+  border-style: outset;
+  align-items: center;
+}
+
+.output {
+  color: coral;
+  font-size: 50rpx;
+}
+
+.xiaoqi{
+}
