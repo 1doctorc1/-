@@ -1,0 +1,63 @@
+<!--页面根标签-->
+<view>
+  <!--pics文件夹下的background.jpg文件-->
+  <image class='background' src="../../icons/feedback.png" mode="aspectFill"></image>
+</view>
+<view class="container">
+
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 微信登陆 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="main">
+    <view bindtap="mywork" class="mainer">我的作品</view>
+    <view bindtap="like" class="mainer">收藏夹</view>
+    <view bindtap="message" class="mainer">我的消息</view>
+  </view>
+
+  <!-- <image src="../../icons/divbar.png" mode="aspectFit" style="height:100rpx"></image> -->
+
+  <view class="uploader">
+    <view>
+      <button open-type="contact" bindcontact="contact">
+        在线客服
+      </button>
+    </view>
+  </view>
+
+  <view class="uploader">
+    <view>
+      <button open-type="feedback">
+        <text>意见反馈</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="uploader">
+    <view>
+      <button open-type="share">
+        <text>分享给好友</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="uploader">
+    <view>
+      <button open-type="openSetting">
+        <text>设置</text>
+      </button>
+    </view>
+  </view>
+
+  <view class="uploader">
+    <view>
+      <button bindtap="about">
+        关于
+      </button>
+    </view>
+  </view>
+
+</view>

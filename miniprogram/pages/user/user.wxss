@@ -1,0 +1,69 @@
+.hr {
+    width: 100%;
+    height: 15px;
+    background-color: #f4f5f6;
+}
+
+.buttonn-my {
+    display: flex;
+    flex-direction: row;
+    width: 750rpx;
+}
+
+.title {
+    width: 100%;
+    background: white;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    font-size: 15px;
+}
+
+.detail2 {
+    font-size: 15px;
+    position: absolute;
+    right: 10px;
+    height: 50px;
+    line-height: 50px;
+    color: #888;
+}
+
+.line {
+    width: 100%;
+    height: 5px;
+    background: gainsboro;
+}
+
+.button {
+    width: 100%;
+    background: white;
+    border: none;
+    padding: 7px 15px;
+    margin: 0px;
+    line-height: 1.6;
+    border-radius: 0;
+}
+
+.button_after {
+    border: none;
+    border-radius: 0;
+}
+
+.button_title {
+    font-size: 1rem;
+    text-align: center;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.mainer {
+    text-align: center;
+    font-weight: bold;
+    font-size: small;
+    padding-top: 40rpx;
+    width: 200rpx;
+    height: 100rpx;
+}
