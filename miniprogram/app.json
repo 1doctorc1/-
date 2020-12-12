@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/diy/diy",
+    "pages/test/test",
+    "pages/xiaoqi/xiaoqi",
+    "pages/community/community",
+    "pages/user/user",
+    "pages/share/share",
+    "pages/kefu/kefu",
+    "pages/about/about",
+    "pages/message/message"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "DIY你的那个TA",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [{
+        "pagePath": "pages/diy/diy",
+        "text": "DIY",
+        "iconPath": "icons/DIY点之前.png",
+        "selectedIconPath": "icons/DIY点之后.png"
+      },
+      {
+        "pagePath": "pages/community/community",
+        "text": "作品社区",
+        "iconPath": "icons/社区点击前.png",
+        "selectedIconPath": "icons/社区点之后.png"
+      },
+      {
+        "pagePath": "pages/xiaoqi/xiaoqi",
+        "text": "你好小琪",
+        "iconPath": "icons/小琪点击前.png",
+        "selectedIconPath": "icons/小琪点击后.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath": "icons/用户点击前.png",
+        "selectedIconPath": "icons/用户点击后.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

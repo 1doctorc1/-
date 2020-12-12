@@ -1,0 +1,49 @@
+<!--页面根标签-->
+<view>
+  <!--pics文件夹下的background.jpg文件-->
+  <image class='background' src="../../icons/background.png" mode="aspectFill"></image>
+</view>
+<!--页面其它部分-->
+<!--(+)-->
+<button bindtap="changeImage" class="btn" hidden>
+  <image class="icon" src="{{addit?'../../icons/add.png':'../../icons/delete.png'}}"></image>
+</button>
+<!--列表-->
+<view class="item-container">
+  <image class="img" mode="aspectFit" bindtap="calimg" src="{{imgUrl}}"></image>
+  <!-- <image bindtap="ddel" class="icon" src="" data-id="{{item._id}}"></image> -->
+  <image bindtap="changePic" class="icon" src="../../icons/Cshare.png"></image>
+  <view>{{picIndex==-1?'添加图片':'更换图片'}}</view>
+  <image bindtap="showSlider" class="icon" src="../../icons/parameter.png"></image>
+  <view>参数调整</view>
+  <image bindtap="toolbox" class="icon" src="../../icons/toolbox.png" hidden></image>
+  <image bindtap="download" class="icon" src="../../icons/download.png"></image>
+  <veiw>本地保存</veiw>
+  <image bindtap="share" class="icon" src="../../icons/share.png"></image>
+  <view>社区分享</view>
+  <form bindsubmit="getccao">
+    <view hidden="{{hideSlider}}">
+      <block wx:if="{{picIndex==0}}">
+        <!-- blush -->
+        <slider name='blush' min='-20' max='20' show-value="{{false}}" step='1'>脸红</slider>
+        <!-- open_mouth -->
+        <slider name='open_mouth' min='-20' max='20' show-value="{{false}}" step='1'>张嘴</slider>
+        <!-- smile -->
+        <slider name='smile' min='-20' max='20' show-value="{{false}}" step='1'>微笑</slider>
+      </block>
+      <block wx:elif="{{picIndex==1}}">
+        <!-- sunshine -->
+        <slider name='sunshine' min='-20' max='20' show-value="{{false}}" step='1'>阳光</slider>
+        <!-- artistry -->
+        <slider name='artistry' min='-20' max='20' show-value="{{false}}" step='1'>艺术性</slider>
+      </block>
+      <block wx:elif="{{picIndex==2}}">
+        <!-- armor -->
+        <slider name='armor' min='-20' max='20' show-value="{{false}}" step='1'>盔甲</slider>
+        <!-- female -->
+        <slider name='female' min='-20' max='20' show-value="{{false}}" step='1'>女性化</slider>
+      </block>
+      <button form-type="submit">保存修改</button>
+    </view>
+  </form>
+</view>

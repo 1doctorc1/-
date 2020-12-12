@@ -1,0 +1,5 @@
+/* pages/guanyu/guanyu.wxss */
+view{
+  font-family: cursive;
+  font-size: large;
+}

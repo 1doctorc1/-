@@ -1,0 +1,13 @@
+/* pages/community/community.wxss */
+button {
+  font-weight: normal;
+  font-size: small;
+  color: grey;
+}
+
+.img {
+  width: 350rpx;
+  height: 350rpx;
+  margin-top: 20rpx;
+  margin-left: 40rpx;
+}

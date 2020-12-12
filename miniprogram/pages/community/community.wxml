@@ -1,0 +1,39 @@
+<!--页面根标签-->
+<view>
+  <!--pics文件夹下的background.jpg文件-->
+  <image class='background' src="../../icons/communityback.png" mode="scaleToFill"></image>
+</view>
+<!-- for debug -->
+<!-- <view>{{openid}}</view> -->
+
+<view class="item-container">
+  <view class="flex-row" wx:for="{{pic}}" wx:key="_id">
+    <block wx:if="{{item.notshow!=true&&(fromMy==false||item._openid==openid)&&(fromStar==false||item.star==true)}}">
+      <image src="{{item.imgUrl}}" class="img"></image>
+      <view style="flex-column">
+        <view class="flex-row">
+          <image bindtap="like" class="icon" data-index="{{index}}" data-id="{{item._id}}"
+            src="{{item.liked?'../../icons/C_thumbup.png':'../../icons/Cthumbup.png'}}"></image>
+          <view>{{item.like}}</view>
+        </view>
+        <view>
+          <image bindtap="star" class="icon" data-index="{{index}}" data-id="{{item._id}}"
+            src="{{item.star?'../../icons/C_collect.png':'../../icons/Ccollect.png'}}"></image>
+        </view>
+        <!-- <view>
+          <image bindtap="share" class="icon" src="../../icons/Cshare.png"></image>
+        </view> -->
+        <view wx:if="{{openid==item._openid}}">
+          <button size="mini" bindtap="remove" data-deleteid="{{item._id}}">删除</button>
+        </view>
+        <view wx:else>
+          <button size="mini" bindtap="notshow" data-index="{{index}}">屏蔽</button>
+        </view>
+        <!-- <view>index: {{index}}</view>
+      <view>_id: {{item._id}}</view> -->
+        <!-- <view>_openid: {{item._openid}}</view> -->
+        <!-- <view>imgUrl: {{item.imgUrl}}</view> -->
+      </view>
+    </block>
+  </view>
+</view>

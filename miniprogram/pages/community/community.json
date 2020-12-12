@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "作品社区",
+  "usingComponents":{
+    "search":"../../components/search/search"
+  }
+}

@@ -1,0 +1,9 @@
+<image class="img" mode="aspectFit" bindtap="calimg" src="{{item.imgUrl}}"></image>
+<form bindsubmit="formSubmit">
+    <input name='' type="text" placeholder="输入作品名称" ></input>
+    <checkbox-group bindchange="checkClick">
+        <block wx:for="checkData" wx:key="">
+            <checkbox-box value='{{item.name}}' checked="{{item.status}}">{{item.name}}</checkbox-box>
+        </block>
+    </checkbox-group>
+</form>

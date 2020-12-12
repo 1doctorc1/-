@@ -1,0 +1,28 @@
+<!--pages/login/login.wxml-->
+<view class='nav'>输入个人信息</view>
+<form bindsubmit='formSubmit'>
+  <view class='text'>学号</view>
+  <view class="section">
+    <input name="no" type="text" placeholder="输入学号" value="1635050527" />
+  </view>
+  <view class='text'>密码</view>
+  <view class="section">
+    <input name="pwd" password="true" placeholder="输入密码" value='123456' />
+  </view>
+  <view>
+    <button formType='submit'>登录</button>
+  </view>
+</form>
+<button bindtap="upload">
+  cloud.upload
+</button>
+<button bindtap="additem">
+  cloud.additem
+</button>
+<image src="{{url}}">
+  123
+</image>
+<view>
+  {{str}}
+</view>
+<input placeholder="---" bindinput="in" />

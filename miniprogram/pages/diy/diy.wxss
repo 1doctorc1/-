@@ -1,0 +1,21 @@
+/**/
+.item-name {
+  font-size: 12px;
+  margin-left: 15px;
+}
+
+/**/
+.img {
+  width: 350rpx;
+  height: 350rpx;
+  margin-top: 20rpx;
+  margin-left: 40rpx;
+}
+
+.scimg {
+  width: 88rpx;
+  height: 88rpx;
+  position: fixed;
+  bottom: 30rpx;
+  right: 30rpx;
+}

@@ -1,0 +1,1 @@
+<kaiping-component wx:if="{{kaipingFlag}}" imagepath="cloud://test-9g5t8z9dfa72d046.7465-test-9g5t8z9dfa72d046-1303255660/logo.png" second="{{5}}" bind:hide="endLogo"></kaiping-component>
