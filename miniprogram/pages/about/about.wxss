@@ -1,5 +1,5 @@
 /* pages/guanyu/guanyu.wxss */
 view{
-  font-family: cursive;
+  font-family: 'Times New Roman', Times, serif;
   font-size: large;
 }

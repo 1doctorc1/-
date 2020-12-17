@@ -7,31 +7,79 @@ Page({
    */
   data: {
     pic: [],
-    openid: ''
+    openid: '',
   },
   remove: function (e) {
-    console.log(e.currentTarget.dataset.deleteid);
-    wx.cloud.callFunction({
-      name: 'removepic',
-      data: {
-        id: e.currentTarget.dataset.deleteid,
-      },
-      success: res => {
-        console.log(res);
-        wx.reLaunch({
-          url: '../community/community',
-        })
-      },
-      fail: res => {
-        console.log(res);
+    wx.showModal({
+      title: '删除确认',
+      content: '真的不是手抖吗？',
+      confirmText: '确定删除',
+      cancelText: '我手抖了',
+      success(res) {
+        if (res.confirm) {
+          console.log('e.currentTarget.dataset.deleteid', e.currentTarget.dataset.deleteid);
+          wx.cloud.callFunction({
+            name: 'removepic',
+            data: {
+              id: e.currentTarget.dataset.deleteid,
+            },
+            success: res => {
+              console.log(res);
+              wx.reLaunch({
+                url: '../community/community',
+              })
+              wx.showToast({
+                title: '删除成功',
+                icon: 'success',
+              })
+            },
+            fail: res => {
+              console.error(res);
+            }
+          })
+        }
       }
     })
   },
   notshow: function (e) {
-    let index = e.currentTarget.dataset.index;
+    let that = this;
+    if (e !== +e) {
+      wx.showModal({
+        title: '屏蔽确认',
+        content: '真的不是手抖吗？',
+        confirmText: '确定屏蔽',
+        cancelText: '我手抖了',
+        success(res) {
+          if (res.confirm) {
+            that.realnotshow(e.currentTarget.dataset.index);
+            wx.showToast({
+              title: '屏蔽成功',
+              icon: 'success',
+            })
+          }
+        }
+      })
+    } else that.realnotshow(e);
+  },
+  realnotshow: function (index) {
     let that = 'pic[' + index + '].notshow';
+    let newnotshow = !this.data.pic[index].notshow;
+    console.log('notshow', index, newnotshow);
     this.setData({
-      [that]: true,
+      [that]: newnotshow,
+    })
+    wx.cloud.callFunction({
+      name: 'notshow',
+      data: {
+        id: this.data.pic[index]._id,
+        notshow: newnotshow,
+      },
+      success: res => {
+        console.log(res);
+      },
+      fail: res => {
+        console.error(res);
+      }
     })
   },
   like: function (e) {
@@ -98,18 +146,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
-    let that = this;
-    wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        getApp().globalData.openid = res.result.openid;
-        console.log(getApp().globalData.openid);
-        that.setData({
-          openid: getApp().globalData.openid,
-        })
-      }
+    this.setData({
+      openid: app.globalData.openid,
     })
   },
 
@@ -126,6 +164,7 @@ Page({
    * 在wxml中使用逻辑判断进行条件渲染
    */
   onShow: function () {
+    // console.log(app.globalData);
     this.setData({
       fromStar: app.globalData.fromStar,
       fromMy: app.globalData.fromMy,
@@ -145,11 +184,41 @@ Page({
     wx.cloud.database().collection('user').where({
 
     }).get({
-      success: function (res) {
+      success: res => {
         console.log('res.data:', res.data);
         that.setData({
           pic: res.data,
         })
+        // console.log(that.data.pic);
+        let count = 0;
+        // console.log(res.data.length);
+        for (let i = 0; i < res.data.length; ++i) {
+          // console.log(i, res.data[i].notshow === true, res.data[i]._openid === that.data.openid);
+          if (res.data[i].notshow === true && res.data[i]._openid === that.data.openid)
+            that.notshow(i);
+          if (res.data[i].notshow !== true && (that.data.fromMy === false || res.data[i]._openid === that.data.openid) && (that.data.fromStar === false || res.data[i].star))
+            ++count;
+        }
+        console.log('count:', count);
+        if (count === 0) {
+          if (that.data.fromMy)
+            wx.showToast({
+              title: '你还未发布作品哦',
+              icon: 'none',
+            })
+          else if (that.data.fromStar)
+            wx.showToast({
+              title: '你还未收藏任何作品哟',
+              icon: 'none'
+            })
+          else wx.showToast({
+            title: '哎呀，作品社区空空如也',
+            icon: 'none',
+          })
+        }
+      },
+      fail: function (res) {
+        console.error(res);
       }
     })
   },
@@ -181,14 +250,15 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function (res) {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  onShareAppMessage: function (res) {
+    console.log(res);
+    return {}
+  },
 })

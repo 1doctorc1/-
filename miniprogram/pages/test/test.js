@@ -6,6 +6,30 @@ Page({
   data: {
     url: '',
     str: '',
+    num: 0,
+  },
+  addconfirm: function (e) {
+    console.log(e);
+    let that = this;
+    wx.showModal({
+      // cancelColor: 'red',
+      // title: '提示',
+      // content: '这是一个模态弹窗',
+      success(res) {
+        console.log(res);
+        if (res.confirm) {
+          console.log('用户点击确定');
+          that.setData({
+            num: that.data.num + 1,
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消');
+          that.setData({
+            num: that.data.num - 1,
+          })
+        }
+      }
+    })
   },
   in: function (e) {
     console.log(e.detail.value.replace(/小2/g, '小1'));

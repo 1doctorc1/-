@@ -60,7 +60,14 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
-  }
+  onShareAppMessage: function (res) {
+    console.log(res);
+    if (res.from === 'button')
+      return {
+        title: 'DIY你的那个TA',
+        path: '/pages/index/index',
+        imageUrl: '../../icons/xiaoqi.jpg',
+      }
+    else return {}
+  },
 })

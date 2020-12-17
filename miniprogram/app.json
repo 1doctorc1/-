@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/diy/diy",
+    "pages/user/user",
     "pages/test/test",
+    "pages/diy/diy",
     "pages/xiaoqi/xiaoqi",
     "pages/community/community",
-    "pages/user/user",
     "pages/share/share",
     "pages/kefu/kefu",
     "pages/about/about",

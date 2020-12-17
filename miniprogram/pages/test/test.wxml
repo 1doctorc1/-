@@ -26,3 +26,4 @@
   {{str}}
 </view>
 <input placeholder="---" bindinput="in" />
+<button bindtap="addconfirm">+{{num}}</button>

@@ -10,6 +10,7 @@ Page({
     imgUrl: '',
     picIndex: -1,
     hideSlider: true,
+    maxPic: 3,
   },
   /*删除图片*/
   deleteit: function () {
@@ -20,7 +21,7 @@ Page({
   /*添加、更换图片*/
   changePic: function () {
     this.setData({
-      picIndex: (this.data.picIndex + 1) % 3,
+      picIndex: (this.data.picIndex + 1) % this.data.maxPic,
     })
     this.setData({
       imgUrl: this.data.img[this.data.picIndex],
@@ -228,6 +229,7 @@ Page({
     wx.cloud.database().collection('user').add({
       data: {
         imgUrl: this.data.imgUrl,
+        userInfo: this.data.userInfo,
       },
       success: function (res) {
         console.log('res:', res);
@@ -243,6 +245,23 @@ Page({
           icon: 'loading',
         })
       },
+    })
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function (res) {
+    console.log(res);
+    return {}
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    this.setData({
+      userInfo: app.globalData.userInfo,
     })
   },
 })

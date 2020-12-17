@@ -52,18 +52,6 @@
   opacity: 0.8;
 }
 
-button {
-  background: initial;
-}
-
-button:focus {
-  outline: 0;
-}
-
-button::after {
-  border: none;
-}
-
 
 page {
   background: #f6f6f6;
@@ -117,6 +105,9 @@ page {
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  border-style: solid;
+  border-color: #b8d6eb;
+  border-width: medium;
 }
 
 .uploader-text,

@@ -32,6 +32,15 @@ App({
         traceUser: true,
       })
     }
+    let that = this;
+    wx.cloud.callFunction({
+      name: 'login',
+      data: {},
+      success: res => {
+        this.globalData.openid = res.result.openid;
+        console.log(this.globalData.openid);
+      }
+    })
   },
   globalData: {
     userInfo: null,

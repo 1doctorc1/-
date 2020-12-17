@@ -4,9 +4,6 @@ Page({
   data: {
     kaipingFlag: true
   },
-  onLoad: function () {
-
-  },
   /*结束Logo展示*/
   endLogo: function () {
     // console.log("hide");
